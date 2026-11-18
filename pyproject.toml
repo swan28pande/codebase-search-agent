@@ -1,0 +1,16 @@
+[project]
+name = "codebase-search-agent"
+version = "0.1.0"
+description = "Parallel LangGraph agents that search codebases with hybrid BM25 + FAISS retrieval, self-verification and consensus."
+requires-python = ">=3.10"
+dependencies = ["langgraph>=0.2", "faiss-cpu>=1.8", "numpy", "rank-bm25>=0.2", "httpx>=0.27"]
+
+[project.scripts]
+csa = "csa.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["csa"]
