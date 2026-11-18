@@ -60,7 +60,7 @@ class CodeIndex:
     def _chunk(root: Path, n: int) -> list[Chunk]:
         chunks = []
         for p in sorted(root.rglob("*")):
-            if p.suffix not in CODE_EXTS or any(part.startswith(".") for part in p.parts):
+            if p.suffix not in CODE_EXTS or any(part.startswith(".") for part in p.relative_to(root).parts):
                 continue
             lines = p.read_text(errors="ignore").splitlines()
             for s in range(0, len(lines), n):
